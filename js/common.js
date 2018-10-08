@@ -1,3 +1,11 @@
+function init(n) {
+	for (var i = 2; i <= n; i++) {
+		$('<option value="'+i+'" data-count="'+i+'">'+i+'</option>').appendTo('#count');
+		$('#count option:eq(3)').prop('selected', true);
+	}
+	
+}
+
 function draw() {
 	var count = $('#count option:selected').val(),
 	str = "this.value = this.value.replace(/[^0-9.]/g,\"\");", 
@@ -38,9 +46,9 @@ function doMath(method) {
 
 			var length, sum = 0, msum = 0, apr, da, alpha, count, t, s;
 			var p = [];
-			p[0] = [2.92,2.13, 1.83, 1.76, 1.73];
-			p[1] = [4.30,2.78, 2.26, 2.26, 2.09];
-			// p[2] = [9.93,4.60, 3.25, 2.82, 2.54];
+			p[0] = [6.31,2.92,2.35,2.13,2.02,1.94,1.89,1.86,1.83,1.81,1.80,1.78,1.77,1.76,1.75,1.75,1.74,1.73,1.73,1.72,1.72,1.72,1.71,1.71,1.71,1.71,1.70,1.70,1.70];
+			p[1] = [12.71,4.30,3.18,2.78,2.57,2.45,2.36,2.31,2.26,2.23,2.20,2.18,2.16,2.14,2.13,2.12,2.11,2.10,2.09,2.09,2.08,2.07,2.07,2.06,2.06,2.06,2.05,2.05,2.05];
+			p[2] = [63.66,9.92,5.84,4.60,4.03,3.71,3.50,3.36,3.25,3.17,3.11,3.05,3.01,2.98,2.95,2.92,2.90,2.88,2.86,2.85,2.83,2.82,2.81,2.80,2.79,2.78,2.77,2.76,2.76];
 			alpha = $('#alpha option:selected').val();
 			count = $('#count option:selected').data('count');
 			length = samples.length;
@@ -82,7 +90,7 @@ function doMath(method) {
 }
 
 $(document).ready(function($) {
-
+	init(30);
 	draw();
 
 	$('#count').change(function() {
