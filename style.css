@@ -1,7 +1,9 @@
 body, html {
 	margin: 0;
 	height: 100vh;
+	font-size: 16px;
 }
+
 .wrap {
 	display: -webkit-flex;
 	display: -moz-flex;
@@ -60,8 +62,8 @@ body, html {
 	background-color: lightcyan;
     border: 1px solid green;
     width: 40vw;
-    margin-top: 25px;
-    padding: 20px 50px;
+    margin: 0 auto;
+    padding: 20px 20px;
 }
 .kbox {
 	display: none;
@@ -78,16 +80,32 @@ span.mjx-chtml {
 .sbox .apr {
 	margin-top: 20px;
 	width: 20vw;
-	/*margin-right: 200px;*/
 }
 .sbox .da {
 	margin-top: 51px;
 }
 .author {
-	position: absolute;
-	bottom: 0;
-	left: 0;
+	
 }
 .author a {
 	color: black;
+}
+
+@media only screen and (max-width : 575px) {
+	.wrap {
+		flex-direction: column;
+	}
+	.col1, .col2 {
+		width: 100%;
+	}
+	.sbox, .kbox {
+		flex-direction: column;
+		font-size: 16px;
+		padding: 6px 20px;
+	    width: 80vw;
+	}
+	.apr, .da {
+		width: 100% !important;
+		padding: 0 10px;
+	}
 }
