@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<title>Погрешность</title>
+	<link rel="stylesheet" href="style.min.css">
+	<script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=MML_CHTML"></script>
+</head>
+<body>
+	<div class="wrap">
+		<div class="col1">
+			<h4>Случайные погрешности</h4>
+			<div class="calcs">
+				Выберите кол-во выборки:
+				<select id="count">
+					<option value="1">5</option>
+					<option value="2">10</option>
+					<option value="3">15</option>
+					<option value="4">20</option>
+				</select>
+				Метод:
+				<select id="method">
+					<option>Корнфельд</option>
+					<option selected>Стьюдент</option>
+				</select>
+				<span class="a">α:
+					<select id="alpha">
+						<option value="0">0.90</option>
+						<option value="1" selected>0.95</option>
+						<option value="2">0.98</option>
+					</select>
+				</span>
+				<div id="samples"></div>
+				Чисел после 0:
+				<select id="round">
+					<option>0</option>
+					<option>1</option>
+					<option selected>2</option>
+					<option>3</option>
+					<option>4</option>
+				</select>
+				<input type="submit" value="Сосчитать" id="solve">
+				<div class="answer">
+					<span>Ответ:</span>
+					<div>
+						a<sub>пр</sub> = <span id="apr"></span>
+					</div>
+					<div>
+						Δa = <span id="da"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="col2">
+			<h4>Вычисления:</h4>
+			<div class="kbox">
+				<div class="apr">
+					<math>
+						<msub>
+							<mi>a</mi>
+							<mrow>
+								<mi>&#x43F;</mi>
+								<mi>&#x440;</mi>
+							</mrow>
+						</msub>
+						<mo>=</mo>
+						<mfrac>
+							<mstyle>
+								<msub>
+									<mi>a</mi>
+									<mi>max</mi>
+								</msub>
+								<mo>+</mo>
+								<msub>
+									<mi>a</mi>
+									<mi>min</mi>
+								</msub>
+							</mstyle>
+							<mi>2</mi>
+						</mfrac>
+					</math>
+					<br>
+					<math>
+						<msub>
+							<mi>a</mi>
+							<mrow>
+								<mi>&#x43F;</mi>
+								<mi>&#x440;</mi>
+							</mrow>
+						</msub>
+						<mo>=</mo>
+					</math>
+					<span id="kpr"><math><mi>?</mi></math></span>
+				</div>
+				<div class="da">
+					<math>
+						<mi>&#x394;</mi>
+						<mi>a</mi>
+						<mo>=</mo>
+						<mfrac>
+							<mstyle>
+								<msub>
+									<mi>a</mi>
+									<mi>max</mi>
+								</msub>
+								<mo>-</mo>
+								<msub>
+									<mi>a</mi>
+									<mi>min</mi>
+								</msub>
+							</mstyle>
+							<mi>2</mi>
+						</mfrac>
+					</math>
+					<br>
+					<math>
+						<mi>&#x394;</mi>
+						<mi>a</mi>
+						<mo>=</mo>
+					</math>
+					<span id="kda"><math><mi>?</mi></math></span>
+				</div>
+			</div>
+			<div class="sbox">
+				<div class="apr">
+					<!-- apr -->
+					<math>
+						<msub>
+							<mi>a</mi>
+							<mrow>
+								<mi>&#x43F;</mi>
+								<mi>&#x440;</mi>
+							</mrow>
+						</msub>
+						<mo>=</mo>
+						<mfrac>
+							<mrow>
+								<mstyle displaystyle="true">
+									<munderover>
+										<mo>&#x2211;</mo>
+										<mrow>
+											<mi>i</mi>
+											<mo>=</mo>
+											<mn>1</mn>
+										</mrow>
+										<mi>
+											n
+										</mi>
+									</munderover>
+								</mstyle>
+								<msub>
+									<mi>a</mi>
+									<mi>i</mi>
+								</msub>
+							</mrow>
+							<mi>n</mi>
+						</mfrac>
+					</math>
+					<!-- end apr -->
+					<br>
+					<!-- pr sum -->
+					<math>
+						<mstyle displaystyle="true"><munderover><mo>&#x2211;</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover></mstyle><msub><mi>a</mi><mi>i</mi></msub><mo>=</mo>
+					</math>
+					<span id="aprsum">
+						<math><mi>?</mi></math>
+					</span>
+					<!-- end pr sum -->
+					<br>
+					<math>
+						<msub>
+							<mi>a</mi>
+							<mrow>
+								<mi>&#x43F;</mi>
+								<mi>&#x440;</mi>
+							</mrow>
+						</msub>
+						<mo>=</mo>
+					</math>
+					<span id="ansapr">
+						<math><mi>?</mi></math>
+					</span>
+				</div>
+				<br>
+				<!-- da -->
+				<div class="da">
+					<math>
+						<mi>&#x394;</mi><mi>a</mi><mo>=</mo><msub><mi>t</mi><mrow><mi>&#x3B1;</mi><mo>:</mo><mi>f</mi></mrow></msub><mo>&#xD7;</mo><mi>S</mi>
+					</math>
+					<!-- end sum -->
+					<br>
+					<math>
+						<mi>S</mi><mo>=</mo><msqrt><mfrac><mstyle displaystyle="true"><munderover><mo>&#x2211;</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mo>(</mo><msub><mi>a</mi><mrow><mi>&#x43F;</mi><mi>&#x440;</mi></mrow></msub><mo>-</mo><msub><mi>a</mi><mi>i</mi></msub><msup><mo>)</mo><mn>2</mn></msup></mstyle><mrow><mi>n</mi><mo>(</mo><mi>n</mi><mo>-</mo><mn>1</mn><mo>)</mo></mrow></mfrac></msqrt>
+					</math>
+					<br>
+					<math>
+						<mstyle displaystyle="true"><munderover><mo>&#x2211;</mo><mrow><mi>i</mi><mo>=</mo><mn>1</mn></mrow><mi>n</mi></munderover><mo>(</mo><msub><mi>a</mi><mrow><mi>&#x43F;</mi><mi>&#x440;</mi></mrow></msub><mo>-</mo><msub><mi>a</mi><mi>i</mi></msub><msup><mo>)</mo><mn>2</mn></msup></mstyle><mo>=</mo>
+					</math>
+					<span id="msum">
+						<math><mi>?</mi></math>
+					</span>
+					<br>
+					<math>
+						<mi>S</mi>
+						<mo>=</mo>
+					</math>
+					<span id="das">
+						<math><mi>?</mi></math>
+					</span>
+					<br>
+					<math>
+						<mi>&#x394;</mi><mi>a</mi><mo>=</mo>
+					</math>
+					<span id="ansda">
+						<math><mi>?</mi></math>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script src="js/jquery-3.2.0.min.js"></script>
+	<script src="js/common.min.js"></script>
+	<span class="author">©<a target="_blank" href="https://vk.com/d4rkst4r">Савелий Пивоваров</a>, 2017</span>
+</body>
+</html>

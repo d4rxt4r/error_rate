@@ -1,0 +1,93 @@
+body, html {
+	margin: 0;
+	height: 100vh;
+}
+.wrap {
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+}
+.col1 {
+	text-align: center;
+	width: 50%;
+}
+.col2 {
+	width: 50%;
+}
+.col2 h4 {
+	text-align: center;
+}
+.calcs {
+    margin: 10px;
+    text-align: center;
+}
+.sample {
+	width: 50px;
+	margin: 5px;
+}
+#samples {
+	display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flex;
+    display: -o-flex;
+    display: flex;
+    max-height: 160px;
+    max-width: 320px;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    margin: 5px auto;
+}
+.answer {
+	display: block;
+    border: 1px solid green;
+    background-color: lightcyan;
+    display: none;
+    text-align: center;
+    width: 120px;
+    margin: 10px auto;
+    padding: 5px 10px;
+    font-size: 18px;
+}
+.sbox, .kbox {
+	font-size: 19px;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	background-color: lightcyan;
+    border: 1px solid green;
+    width: 40vw;
+    margin-top: 25px;
+    padding: 20px 50px;
+}
+.kbox {
+	display: none;
+}
+span.mjx-chtml {
+	margin-bottom: 30px;
+}
+.kbox .apr, .kbox .da {
+	margin-top: 20px;
+}
+.kbox .apr {
+	width: 20vw;
+}
+.sbox .apr {
+	margin-top: 20px;
+	width: 20vw;
+	/*margin-right: 200px;*/
+}
+.sbox .da {
+	margin-top: 51px;
+}
+.author {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+.author a {
+	color: black;
+}
