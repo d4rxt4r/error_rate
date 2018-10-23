@@ -35,7 +35,7 @@ body, html {
     display: -ms-flex;
     display: -o-flex;
     display: flex;
-    max-height: 160px;
+    max-height: 185px;
     max-width: 320px;
     flex-wrap: wrap;
     border: 1px solid black;
